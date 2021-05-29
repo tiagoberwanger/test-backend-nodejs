@@ -1,11 +1,17 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const ProductsController = require('./src/controllers/ProductsController');
+
+const app = express();
+const PORT = 3000
+
+app.use(express.json());
 
 app.get('/', (_req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
-  console.log(`running at ${port}`)
+app.use('/products', ProductsController);
+
+app.listen(PORT, () => {
+  console.log(`running at ${PORT}`)
 })

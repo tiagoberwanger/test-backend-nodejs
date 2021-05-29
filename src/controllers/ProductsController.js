@@ -6,10 +6,14 @@ const {
 const STATUS_CREATED = 201;
 const STATUS_UNPROCESSABLE= 422;
 
-ProductsController.post('/', async (req, res) => {
+const route = new Router();
+
+route.post('/', async (req, res) => {
     const { title, description, price, category } = req.body;  
     const created = await create(title, description, price, category);
     
     if (!create) res.status(STATUS_UNPROCESSABLE).json({ message: 'Unable to create product' });
     return res.status(STATUS_CREATED).json(created);
   });
+
+module.exports = route;
