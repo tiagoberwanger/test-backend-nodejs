@@ -2,7 +2,8 @@ const {
   createProduct,
   updateProduct, 
   getProductById,
-  getAllProducts
+  getAllProducts,
+  deleteProduct
 } = require('../models/ProductsModel');
 
 const create = async (title, description, price, category) => {

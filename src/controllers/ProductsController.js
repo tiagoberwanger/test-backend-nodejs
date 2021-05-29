@@ -2,7 +2,8 @@ const { Router } = require('express');
 const { 
   create,
   edit,
-  getAll
+  getAll,
+  exclude
 } = require('../services/ProductsService');
 
 const STATUS_OK = 200;
@@ -31,6 +32,14 @@ route.put('/:id', async (req, res) => {
 route.get('/', async (_req, res) => {
   const allProducts = await getAll();
   return res.status(STATUS_OK).json(allProducts);
+});
+
+route.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const deleted = await exclude(id);
+
+  if (!deleted) return res.status(STATUS_UNPROCESSABLE).json({ message: 'Unable to delete product'});
+  return res.status(STATUS_OK).json({ message: `Product ${id} deleted successfully`});
 });
 
 module.exports = route;
