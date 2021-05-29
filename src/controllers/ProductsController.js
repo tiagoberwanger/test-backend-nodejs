@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const { 
   create,
-  edit
+  edit,
+  getAll
 } = require('../services/ProductsService');
 
 const STATUS_OK = 200;
@@ -25,6 +26,11 @@ route.put('/:id', async (req, res) => {
 
   if (!updated) res.status(STATUS_UNPROCESSABLE).json({ message: 'Unable to update product'});
   return res.status(STATUS_OK).json(updated);
+});
+
+route.get('/', async (_req, res) => {
+  const allProducts = await getAll();
+  return res.status(STATUS_OK).json(allProducts);
 });
 
 module.exports = route;
