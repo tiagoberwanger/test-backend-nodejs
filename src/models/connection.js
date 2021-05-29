@@ -1,7 +1,9 @@
 const { MongoClient } = require('mongodb');
 
-const MONGO_DB_URL = 'mongodb://localhost:27017/CatalogManagement';
-const DB_NAME = 'CatalogManagement';
+require('dotenv').config();
+
+const MONGO_DB_URL = `${process.env.MONGO_DB_URL}/${process.env.DB_NAME}`;
+const DB_NAME = process.env.DB_NAME;
 
 const connection = () => MongoClient.connect(MONGO_DB_URL, {
   useNewUrlParser: true,

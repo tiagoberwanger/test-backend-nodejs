@@ -1,8 +1,9 @@
 const express = require('express');
-const ProductsController = require('./src/controllers/ProductsController');
+require('dotenv').config();
 
+const ProductsController = require('./src/controllers/ProductsController');
 const app = express();
-const PORT = 3000
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
