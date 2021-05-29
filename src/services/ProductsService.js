@@ -20,8 +20,15 @@ const getAll = async () => {
   return await getAllProducts();
 };
 
+const exclude = async (id) => {
+  const deleted = await getProductById(id);
+  await deleteProduct(id);
+  return deleted;
+};
+
 module.exports = {
   create,
   edit,
-  getAll
+  getAll,
+  exclude
 };
