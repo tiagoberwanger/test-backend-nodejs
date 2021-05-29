@@ -46,7 +46,10 @@ You can test the application using Insomnia or Postman, with the following URLS:
 
 - http://localhost:3000/products/search - Method GET - search for title or category
 
+- http://localhost:3000/products/category - Method GET - project products by category
+
 - http://localhost:3000/products/:id - Method DELETE - delete a product
+
 
 ## 🛠 Technologies
 
