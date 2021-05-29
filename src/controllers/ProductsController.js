@@ -1,10 +1,14 @@
-const { Router } = require('express');
+const { Router, query } = require('express');
+const connection = require('../models/connection');
 const { 
   create,
   edit,
   getAll,
-  exclude
+  exclude,
+  filter
 } = require('../services/ProductsService');
+
+const { filterProduct } = require('../models/ProductsModel')
 
 const STATUS_OK = 200;
 const STATUS_CREATED = 201;
@@ -41,5 +45,12 @@ route.delete('/:id', async (req, res) => {
   if (!deleted) return res.status(STATUS_UNPROCESSABLE).json({ message: 'Unable to delete product'});
   return res.status(STATUS_OK).json({ message: `Product ${id} deleted successfully`});
 });
+
+route.get('/search', async (req, res) => {
+  const { q } = req.query;
+  const filtered = await filter(q)
+  console.log(filtered)
+  return res.status(STATUS_OK).json(filtered);
+})
 
 module.exports = route;

@@ -40,11 +40,15 @@ const deleteProduct = async (id) => {
 
 const filterProduct = async (text) => {
   const productsFound = await connection()
-    .then((db) => db.collection('catalog').find({ $text: { $search: text }}));
-    return productsFound;
+    .then((db) => db.collection('catalog').find(
+      { $or: [
+        { "title": {$in: [text]}}, 
+        { "category": {$in: [text]}}
+      ] 
+      }
+    ).toArray());
+  return productsFound;
 }
-
-
 
   module.exports = {
     createProduct,

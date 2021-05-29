@@ -28,7 +28,7 @@ const exclude = async (id) => {
   return deleted;
 };
 
-const getByQuery = async (query) => {
+const filter = async (query) => {
   const targetedProducts = await filterProduct(query);
   return targetedProducts;
 };
@@ -38,5 +38,5 @@ module.exports = {
   edit,
   getAll,
   exclude,
-  getByQuery
+  filter
 };
