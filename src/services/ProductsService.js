@@ -3,7 +3,8 @@ const {
   updateProduct, 
   getProductById,
   getAllProducts,
-  deleteProduct
+  deleteProduct,
+  filterProduct
 } = require('../models/ProductsModel');
 
 const create = async (title, description, price, category) => {
@@ -27,9 +28,15 @@ const exclude = async (id) => {
   return deleted;
 };
 
+const getByQuery = async (query) => {
+  const targetedProducts = await filterProduct(query);
+  return targetedProducts;
+};
+
 module.exports = {
   create,
   edit,
   getAll,
-  exclude
+  exclude,
+  getByQuery
 };
