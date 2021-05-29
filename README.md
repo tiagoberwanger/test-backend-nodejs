@@ -7,10 +7,10 @@ The challenge is to develop an API, using Node.JS, for a product catalog managem
 <strong>Accomplished goals</strong>
 
 - [x] As a user I would like to register a product so that I can have access to the data of this product in the future (Title, description, price, category)
-- [x] I as a user would like to be able to associate and edit a product category;
+- [ ] I as a user would like to be able to associate and edit a product category;
 - [x] As a user I would like to be able to access the list of all products;
-- [ ] As a user I would like to be able to filter products by name or category;
-- [ ] I as a user would like to be able to update the product data;
+- [x] As a user I would like to be able to filter products by name or category;
+- [x] I as a user would like to be able to update the product data;
 - [x] I as a user would like to be able to delete a product from my catalog;
  
 <strong>Install instructions</strong>
