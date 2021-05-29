@@ -15,7 +15,12 @@ const edit = async (id, category) => {
   return update;
 };
 
+const getAll = async () => {
+  return await getAllProducts();
+};
+
 module.exports = {
   create,
-  edit
+  edit,
+  getAll
 };
