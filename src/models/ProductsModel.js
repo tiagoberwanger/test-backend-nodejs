@@ -38,6 +38,12 @@ const deleteProduct = async (id) => {
   return product;
 };
 
+const filterProduct = async (text) => {
+  const productsFound = await connection()
+    .then((db) => db.collection('catalog').find({ $text: { $search: text }}));
+    return productsFound;
+}
+
 
 
   module.exports = {
@@ -45,5 +51,6 @@ const deleteProduct = async (id) => {
     getProductById,
     updateProduct,
     getAllProducts,
-    deleteProduct
+    deleteProduct,
+    filterProduct
   };
