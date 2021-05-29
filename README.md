@@ -20,17 +20,24 @@ The challenge was to develop an API, using Node.JS, for a product catalog manage
 Install [NodeJS](https://nodejs.org/pt-br/download/package-manager/) on your machine.  
 Install [MongoDB](https://docs.mongodb.com/manual/installation/) on your machine.  
 
-<strong>Clone this repository</strong>
-$ git clone <https://github.com/tiagoberwanger/test-backend-nodejs.git>
+<strong>Clone this repository</strong>  
+$ git clone <https://github.com/tiagoberwanger/test-backend-nodejs.git>  
 
-<strong>Access your terminal/cmd</strong>
-$ cd test-backend-nodejs/
+<strong>Access your terminal/cmd</strong>  
+$ cd test-backend-nodejs/  
 
-<strong>Install dependencies</strong>
-$ npm install
+<strong>Install dependencies</strong>  
+$ npm install  
 
-<strong>Execute the application</strong>
-$ npm start
+
+<strong>Create .env file</strong>  
+For testing purposes you can use the following:  
+PORT=3000  
+DB_NAME=CatalogManagement  
+MONGO_DB_URL=mongodb://localhost:27017  
+
+<strong>Execute the application</strong>  
+$ npm start  
 
 ### The server will start listening on port 3000 - access <http://localhost:3000>
 
