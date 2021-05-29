@@ -4,7 +4,8 @@ const {
   getProductById,
   getAllProducts,
   deleteProduct,
-  filterProduct
+  filterProduct,
+  projectByCategory
 } = require('../models/ProductsModel');
 
 const { OK, CREATED, NOT_FOUND, UNPROCESSABLE } = require('../utils/StatusCodes')
@@ -49,10 +50,17 @@ const filter = async (req, res) => {
   return res.status(OK).json(filtered);
 };
 
+const project = async (req, res) => {
+  const { category } = req.body;
+  const projection = await projectByCategory(category);
+  return res.status(OK).json(projection);
+}
+
 module.exports = {
   create,
   edit,
   getAll,
   exclude,
-  filter
+  filter,
+  project
 };

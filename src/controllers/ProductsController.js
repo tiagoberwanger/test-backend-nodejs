@@ -4,7 +4,8 @@ const {
   edit,
   getAll,
   exclude,
-  filter
+  filter,
+  project
 } = require('../services/ProductsService');
 
 const FieldsValidations = require('../utils/FieldsValidations')
@@ -20,5 +21,7 @@ route.get('/', getAll);
 route.delete('/:id', exclude);
 
 route.get('/search', filter)
+
+route.get('/category', project)
 
 module.exports = route;

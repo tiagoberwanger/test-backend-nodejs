@@ -56,11 +56,23 @@ const filterProduct = async (text) => {
   return productsFound;
 }
 
+const projectByCategory = async (category) => {
+  const projection = await connection()
+    .then((db) => db.collection('catalog').aggregate(
+      [ 
+        { $match: { category: category } },
+        { $project : { _id: 0, title: 1 } } 
+      ]
+    ).toArray())
+  return projection;
+}
+
   module.exports = {
     createProduct,
     getProductById,
     updateProduct,
     getAllProducts,
     deleteProduct,
-    filterProduct
+    filterProduct,
+    projectByCategory
   };
