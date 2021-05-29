@@ -7,11 +7,13 @@ const {
   filter
 } = require('../services/ProductsService');
 
+const FieldsValidations = require('../utils/FieldsValidations')
+
 const { OK, CREATED, UNPROCESSABLE } = require('../utils/StatusCodes')
 
 const route = new Router();
 
-route.post('/', async (req, res) => {
+route.post('/', FieldsValidations, async (req, res) => {
   const { title, description, price, category } = req.body;  
   const created = await create(title, description, price, category);
   
