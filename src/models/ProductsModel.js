@@ -11,6 +11,13 @@ const createProduct = async (title, description, price, category) => {
   });
 };
 
+const getProductById = async (id) => {
+  const productById = await connection()
+    .then((db) => db.collection('catalog').findOne({_id: ObjectId(id) }));
+  return productById;
+
+};
+
 const updateProduct = async (id, category) => {
   const updatedProduct = await connection()
     .then((db) => db.collection('catalog').updateOne(
@@ -22,5 +29,6 @@ const updateProduct = async (id, category) => {
 
   module.exports = {
     createProduct,
+    getProductById,
     updateProduct
   };
