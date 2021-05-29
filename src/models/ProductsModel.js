@@ -26,9 +26,16 @@ const updateProduct = async (id, category) => {
   return updatedProduct;
 };
 
+const getAllProducts = async () => {
+  const products = await connection()
+    .then((db) => db.collection('catalog').find().toArray());
+  return products;
+};
+
 
   module.exports = {
     createProduct,
     getProductById,
-    updateProduct
+    updateProduct,
+    getAllProducts
   };
