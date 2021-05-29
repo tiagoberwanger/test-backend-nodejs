@@ -7,7 +7,7 @@ The challenge was to develop an API, using Node.JS, for a product catalog manage
 ### Features
 
 - [x] As a user I would like to register a product so that I can have access to the data of this product in the future (Title, description, price, category)
-- [ ] I as a user would like to be able to associate and edit a product category;
+- [x] I as a user would like to be able to associate ~~and edit a product category~~ products by category;
 - [x] As a user I would like to be able to access the list of all products;
 - [x] As a user I would like to be able to filter products by name or category;
 - [x] I as a user would like to be able to update the product data;
