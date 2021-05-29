@@ -32,10 +32,18 @@ const getAllProducts = async () => {
   return products;
 };
 
+const deleteProduct = async (id) => {
+  const product = await connection()
+    .then((db) => db.collection('catalog').deleteOne({_id: ObjectId(id) }));
+  return product;
+};
+
+
 
   module.exports = {
     createProduct,
     getProductById,
     updateProduct,
-    getAllProducts
+    getAllProducts,
+    deleteProduct
   };
