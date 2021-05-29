@@ -26,11 +26,11 @@ route.post('/', async (req, res) => {
 
 route.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { category } = req.body;
-  const updated = await edit(id, category);
+  const { title, description, price, category } = req.body;
+  const updated = await edit(id, title, description, price, category);
 
   if (!updated) res.status(STATUS_UNPROCESSABLE).json({ message: 'Unable to update product'});
-  return res.status(STATUS_OK).json(updated);
+  return res.status(STATUS_OK).json({ message: `Product ${id} updated successfully`});
 });
 
 route.get('/', async (_req, res) => {

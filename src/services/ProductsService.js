@@ -12,8 +12,8 @@ const create = async (title, description, price, category) => {
   return created;
 };
 
-const edit = async (id, category) => {
-  await updateProduct(id, category);
+const edit = async (id, title, description, price, category) => {
+  await updateProduct(id, title, description, price, category);
   const update = await getProductById(id);
   return update;
 };

@@ -18,11 +18,17 @@ const getProductById = async (id) => {
 
 };
 
-const updateProduct = async (id, category) => {
+const updateProduct = async (id, title, description, price, category) => {
   const updatedProduct = await connection()
     .then((db) => db.collection('catalog').updateOne(
-      db.collection('catalog').findOne({_id: ObjectId(id) }),
-      {$set:{ category }},));
+      {_id: ObjectId(id)},
+      {$set:{
+        title: title, 
+        description: description, 
+        price: price,
+        category: category
+      }},
+    ));
   return updatedProduct;
 };
 
